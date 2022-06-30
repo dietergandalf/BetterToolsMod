@@ -1,4 +1,4 @@
-package io.github.dietergandalf.bettertoolsmod.collective.functions;
+package io.github.dietergandalf.bettertoolsmod.core.functions;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;

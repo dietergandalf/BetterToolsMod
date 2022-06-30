@@ -1,4 +1,4 @@
-package io.github.dietergandalf.bettertoolsmod.enchantment;
+package io.github.dietergandalf.bettertoolsmod.core.enchantment;
 
 import io.github.dietergandalf.bettertoolsmod.BetterToolsMod;
 import net.minecraft.world.entity.EquipmentSlot;

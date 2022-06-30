@@ -1,4 +1,4 @@
-package io.github.dietergandalf.bettertoolsmod.collective.functions;
+package io.github.dietergandalf.bettertoolsmod.core.functions;
 
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.*;
 public class CompareBlockFunctions {
 	public static boolean blockIsInRegistryHolder(Block block, TagKey<Block> tagKey) {
 		return block.builtInRegistryHolder().is(tagKey);
+    
 	}
 
 	public static boolean isStoneBlock(Block block) {

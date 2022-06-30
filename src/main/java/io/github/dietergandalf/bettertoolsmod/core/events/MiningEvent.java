@@ -1,10 +1,10 @@
-package io.github.dietergandalf.bettertoolsmod.events;
+package io.github.dietergandalf.bettertoolsmod.core.events;
 
 import io.github.dietergandalf.bettertoolsmod.collective.data.GlobalVariables;
-import io.github.dietergandalf.bettertoolsmod.collective.functions.CompareBlockFunctions;
-import io.github.dietergandalf.bettertoolsmod.collective.functions.StringFunctions;
-import io.github.dietergandalf.bettertoolsmod.collective.functions.WorldFunctions;
 import io.github.dietergandalf.bettertoolsmod.config.ConfigHandler;
+import io.github.dietergandalf.bettertoolsmod.core.functions.CompareBlockFunctions;
+import io.github.dietergandalf.bettertoolsmod.core.functions.StringFunctions;
+import io.github.dietergandalf.bettertoolsmod.core.functions.WorldFunctions;
 import io.github.dietergandalf.bettertoolsmod.util.Util;
 
 import net.minecraft.ChatFormatting;

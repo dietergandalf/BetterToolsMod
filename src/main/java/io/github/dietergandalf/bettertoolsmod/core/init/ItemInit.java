@@ -205,4 +205,10 @@ public class ItemInit {
         new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)
       )
   );
+
+
+
+  public static final RegistryObject<Item> SUPER_FOOD = ITEMS.register("super_food", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_FOOD).food(FoodInit.SUPER_FOOD)));
+
+
 }

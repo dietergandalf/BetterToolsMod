@@ -1,11 +1,11 @@
 package io.github.dietergandalf.bettertoolsmod;
 
 import io.github.dietergandalf.bettertoolsmod.config.ConfigHandler;
+import io.github.dietergandalf.bettertoolsmod.core.enchantment.ModEnchantments;
+import io.github.dietergandalf.bettertoolsmod.core.events.MiningEvent;
+import io.github.dietergandalf.bettertoolsmod.core.events.TickHandler;
 import io.github.dietergandalf.bettertoolsmod.core.init.BlockInit;
 import io.github.dietergandalf.bettertoolsmod.core.init.ItemInit;
-import io.github.dietergandalf.bettertoolsmod.enchantment.ModEnchantments;
-import io.github.dietergandalf.bettertoolsmod.events.MiningEvent;
-import io.github.dietergandalf.bettertoolsmod.events.TickHandler;
 //import net.minecraft.world.item.CreativeModeTab;
 //import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;

@@ -1,4 +1,4 @@
-package io.github.dietergandalf.bettertoolsmod.events;
+package io.github.dietergandalf.bettertoolsmod.core.events;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -12,7 +12,7 @@ public class TickHandler {
   @SubscribeEvent
   public void tick(net.minecraftforge.event.TickEvent.PlayerTickEvent event) {
     Player player = event.player;
-    //if the player has the firemaster enchantment, add the fireresistance effect to the player
+    //if the player has the firemaster enchantment, add the fire_resistance effect to the player
     if(player.getInventory().getArmor(2).isEnchanted() && player.getInventory().getArmor(2).getEnchantmentTags().getAsString().contains("bettertoolsmod:firemaster")) {
       player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 2, 200, false, false, false));
     }

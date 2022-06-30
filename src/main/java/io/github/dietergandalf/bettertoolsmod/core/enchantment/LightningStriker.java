@@ -1,4 +1,4 @@
-package io.github.dietergandalf.bettertoolsmod.enchantment;
+package io.github.dietergandalf.bettertoolsmod.core.enchantment;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;

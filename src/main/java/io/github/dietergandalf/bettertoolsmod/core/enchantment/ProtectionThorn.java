@@ -1,4 +1,4 @@
-package io.github.dietergandalf.bettertoolsmod.enchantment;
+package io.github.dietergandalf.bettertoolsmod.core.enchantment;
 
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -25,26 +25,26 @@ public class ProtectionThorn extends Enchantment {
   }
 
   @Override
-  public void doPostHurt(LivingEntity target, Entity attacker, int enchLevel) {
+  public void doPostHurt(LivingEntity target, Entity attacker, int enchantmentLevel) {
     if (!target.level.isClientSide()){
 
-      if(enchLevel == 1){
+      if(enchantmentLevel == 1){
         attacker.hurt(target.getLastDamageSource(), 2.0F);
       }
-      if(enchLevel == 2){
+      if(enchantmentLevel == 2){
         attacker.hurt(target.getLastDamageSource(), 4.0F);
       }
-      if(enchLevel == 3){
+      if(enchantmentLevel == 3){
         attacker.hurt(target.getLastDamageSource(), 6.0F);
       }
-      if(enchLevel == 4){
+      if(enchantmentLevel == 4){
         attacker.hurt(target.getLastDamageSource(), 8.0F);
       }
-      if(enchLevel == 5){
+      if(enchantmentLevel == 5){
         attacker.hurt(target.getLastDamageSource(), 10.0F);
       }
     }
-    super.doPostHurt(target, attacker, enchLevel);
+    super.doPostHurt(target, attacker, enchantmentLevel);
   }
 
   @Override

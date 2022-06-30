@@ -1,4 +1,4 @@
-package io.github.dietergandalf.bettertoolsmod.collective.functions;
+package io.github.dietergandalf.bettertoolsmod.core.functions;
 
 import io.github.dietergandalf.bettertoolsmod.collective.data.GlobalVariables;
 import net.minecraft.ChatFormatting;
@@ -167,22 +167,22 @@ public class StringFunctions {
 	
 	
 	// START: GET functions
-	public static String getRandomName(boolean malenames, boolean femalenames) {
-		List<String> allnames;
-		if (malenames && femalenames) {
-			allnames = Stream.concat(GlobalVariables.femalenames.stream(), GlobalVariables.malenames.stream()).collect(Collectors.toList());
+	public static String getRandomName(boolean male_names, boolean female_names) {
+		List<String> all_names;
+		if (male_names && female_names) {
+			all_names = Stream.concat(GlobalVariables.female_names.stream(), GlobalVariables.male_names.stream()).collect(Collectors.toList());
 		}
-		else if (femalenames) {
-			allnames = GlobalVariables.femalenames;
+		else if (female_names) {
+			all_names = GlobalVariables.female_names;
 		}
-		else if (malenames) {
-			allnames = GlobalVariables.malenames;
+		else if (male_names) {
+			all_names = GlobalVariables.male_names;
 		}
 		else {
 			return "";
 		}
 		
-	    String name = allnames.get(GlobalVariables.random.nextInt(allnames.size())).toLowerCase();
+	    String name = all_names.get(GlobalVariables.random.nextInt(all_names.size())).toLowerCase();
 	    return capitalizeEveryWord(name);
 	}
 	
