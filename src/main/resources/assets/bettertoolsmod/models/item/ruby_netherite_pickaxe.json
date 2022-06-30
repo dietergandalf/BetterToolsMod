@@ -1,0 +1,6 @@
+{
+  "parent":"minecraft:item/handheld",
+  "textures":{
+    "layer0":"bettertoolsmod:items/ruby_netherite_pickaxe"
+  }
+}

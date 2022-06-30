@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+    "ingredient": {
+        "item": "bettertoolsmod:deepslate_ruby_ore"
+    },
+    "result": "bettertoolsmod:ruby",
+    "experience": 0.1,
+    "cookingtime": 100
+}

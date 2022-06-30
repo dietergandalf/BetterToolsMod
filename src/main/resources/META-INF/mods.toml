@@ -1,0 +1,18 @@
+
+modLoader="javafml"
+loaderVersion="[41,)" 
+license="MIT"
+
+[[mods]]
+modId="bettertoolsmod"
+version="1.0"
+displayName="Better Tools"
+#updateJSONURL="https://change.me.example.invalid/updates.json"
+#displayURL="https://change.me.to.your.mods.homepage.example.invalid/"
+logoFile="examplemod.png"
+credits="Thanks to TurtyWurty for the introduction to modding with forge"
+authors="DieterGandalf"
+
+description='''
+Tools to instamine deepslate, deeply needed.
+'''
