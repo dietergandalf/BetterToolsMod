@@ -13,13 +13,25 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 
+/**
+ * An enchantment that creates a lightning strike when the weapon is used.
+ * Max Lvl: 5
+ * @author DieterGandalf
+ */
 public class LightningStriker extends Enchantment{
 
+  /*
+   * Constructor for the LightningStriker enchantment.
+   */
   protected LightningStriker(Rarity rarity, EnchantmentCategory category, EquipmentSlot... slots) {
     super(rarity, category, slots);
   }
   
 
+  /*
+   * Creates a lightning strike when the weapon is used.
+   * Scales with the lvl of the enchantment.
+   */
   @Override
   public void doPostAttack(LivingEntity attacker, Entity target, int pLevel) {
     if (!attacker.level.isClientSide()){
@@ -60,6 +72,11 @@ public class LightningStriker extends Enchantment{
     super.doPostAttack(attacker, target, pLevel);
   }
 
+  /*
+   * Returns the max level of the enchantment.
+   * @return 5
+   * @see net.minecraft.world.item.enchantment.Enchantment#getMaxLevel()
+   */
   @Override
   public int getMaxLevel() {
     return 5;

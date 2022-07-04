@@ -9,7 +9,7 @@ public final class ToolMaterialInit {
 
   private ToolMaterialInit() {}
 
-  protected static final Tier RUBY_NETHERITE = new BaseToolMaterial(
+  public static final Tier RUBY_NETHERITE = new BaseToolMaterial(
     5.5F,
     75F,
     100,
@@ -18,7 +18,7 @@ public final class ToolMaterialInit {
     () -> Ingredient.of(ItemInit.RUBY.get())
   );
 
-  protected static final Tier EMERALD = new BaseToolMaterial(
+  public static final Tier EMERALD = new BaseToolMaterial(
     -2.5F,
     40F,
     100,
