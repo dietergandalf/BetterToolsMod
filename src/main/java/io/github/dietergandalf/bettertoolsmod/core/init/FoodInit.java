@@ -8,6 +8,8 @@ public class FoodInit {
 
   private FoodInit(){}
 
+  /*
+  
   public static final FoodProperties SUPER_FOOD = new FoodProperties.Builder().
   nutrition(7).
   saturationMod(7).
@@ -15,4 +17,5 @@ public class FoodInit {
   effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 600, 4), 1).
   effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 600, 3), 1).
   build();
+   */
 }

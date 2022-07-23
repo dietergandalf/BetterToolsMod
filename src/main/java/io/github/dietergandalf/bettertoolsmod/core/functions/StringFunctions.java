@@ -31,6 +31,9 @@ public class StringFunctions {
 	public static void sendMessage(Player player, String m, ChatFormatting colour) {
 		sendMessage(player, m, colour, false);
 	}
+  public static void sendMessage(Player player, String m, String variable, ChatFormatting colour) {
+		sendMessage(player, String.format(m, variable), colour, false);
+	}
 	public static void sendMessage(CommandSourceStack source, String m, ChatFormatting colour, boolean emptyline) {
 		sendMessage(source, m, colour, emptyline, "");
 	}

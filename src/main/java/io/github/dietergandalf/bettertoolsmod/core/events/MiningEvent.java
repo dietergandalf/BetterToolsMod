@@ -2,6 +2,7 @@ package io.github.dietergandalf.bettertoolsmod.core.events;
 
 import io.github.dietergandalf.bettertoolsmod.collective.data.GlobalVariables;
 import io.github.dietergandalf.bettertoolsmod.config.ConfigHandler;
+import io.github.dietergandalf.bettertoolsmod.core.enchantment.ModEnchantments;
 import io.github.dietergandalf.bettertoolsmod.core.functions.CompareBlockFunctions;
 import io.github.dietergandalf.bettertoolsmod.core.functions.StringFunctions;
 import io.github.dietergandalf.bettertoolsmod.core.functions.WorldFunctions;
@@ -23,31 +24,36 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 @EventBusSubscriber
 public class MiningEvent {
+
 	@SubscribeEvent
 	public void onBlockBreak(BlockEvent.BreakEvent e) {
 		Level world = WorldFunctions.getWorldIfInstanceOfAndNotRemote(e.getWorld());
-		if (world == null) {
-			return;
-		}
+		if (world == null) {return;}
 		
 		Player player = e.getPlayer();
 		if (ConfigHandler.GENERAL.ignoreFakePlayers.get()) {
-			if (player instanceof FakePlayer) {
-				return;
-			}
+			if (player instanceof FakePlayer) {return;}
 		}
 		
-		if (player.isCreative()) {
-			return;
-		}
-		
-		BlockState state = e.getState();
+		if (player.isCreative()) {return;}
+
+    BlockState state = e.getState();
 		Block block = state.getBlock();
+    BlockPos pos = e.getPos();
+
+    if(player.getMainHandItem().getEnchantmentTags().getAsString().contains("bettertoolsmod:area_miner")){
+      int enchantmentLvl = player.getMainHandItem().getEnchantmentLevel(ModEnchantments.AREA_MINER.get());
+      BreakBlockEvent.BreakBlocksEvent(world, pos, e.getState(), player, enchantmentLvl);
+    }
+		
 		if (!CompareBlockFunctions.isStoneBlock(block) && !CompareBlockFunctions.isNetherStoneBlock(block)) {
 			return;
 		}
-		
-		Item randommineral;
+		findExtraItems(world, block, pos, player);
+	}
+
+  public static void findExtraItems(Level world, Block block, BlockPos pos, Player player){
+    Item randommineral;
 		if (WorldFunctions.isOverworld(world)) {
 			if (!ConfigHandler.GENERAL.enableOverworldMinerals.get()) {
 				return;
@@ -76,12 +82,11 @@ public class MiningEvent {
 			return;
 		}
 		
-		BlockPos pos = e.getPos();
 		ItemEntity mineralentity = new ItemEntity(world, pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, new ItemStack(randommineral, 1));
 		world.addFreshEntity(mineralentity);
 		
 		if (ConfigHandler.GENERAL.sendMessageOnMineralFind.get()) {
-			StringFunctions.sendMessage(player, ConfigHandler.GENERAL.foundMineralMessage.get(), ChatFormatting.DARK_GREEN);
+			StringFunctions.sendMessage(player, ConfigHandler.GENERAL.foundMineralMessage.get(), mineralentity.getName().getString(), ChatFormatting.DARK_GREEN);
 		}
-	}
+  }
 }

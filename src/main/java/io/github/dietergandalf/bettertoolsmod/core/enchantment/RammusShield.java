@@ -7,9 +7,14 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 
-public class ProtectionThorn extends Enchantment {
+/**
+ * The RammusShield enchantment adds thorn_damage and protection to the armor.
+ * @author DieterGandalf
+ *
+ */
+public class RammusShield extends Enchantment {
 
-  protected ProtectionThorn(Rarity rarity, EnchantmentCategory category, EquipmentSlot... slots) {
+  protected RammusShield(Rarity rarity, EnchantmentCategory category, EquipmentSlot... slots) {
     super(rarity, category, slots);
   }
   

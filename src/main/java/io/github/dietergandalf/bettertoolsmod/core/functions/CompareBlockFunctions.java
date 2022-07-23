@@ -1,5 +1,6 @@
 package io.github.dietergandalf.bettertoolsmod.core.functions;
 
+import io.github.dietergandalf.bettertoolsmod.util.Util;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.*;
@@ -7,7 +8,6 @@ import net.minecraft.world.level.block.*;
 public class CompareBlockFunctions {
 	public static boolean blockIsInRegistryHolder(Block block, TagKey<Block> tagKey) {
 		return block.builtInRegistryHolder().is(tagKey);
-    
 	}
 
 	public static boolean isStoneBlock(Block block) {
@@ -17,6 +17,10 @@ public class CompareBlockFunctions {
 	public static boolean isNetherStoneBlock(Block block) {
 		return blockIsInRegistryHolder(block, BlockTags.BASE_STONE_NETHER);
 	}
+
+  public static boolean isMineralBlock(Block block){
+    return Util.blockInList(block, Util.minerals);
+  }
 
 	public static boolean isTreeLeaf(Block block, boolean withNetherVariants) {
 		if (blockIsInRegistryHolder(block, BlockTags.LEAVES) || block instanceof LeavesBlock) {
