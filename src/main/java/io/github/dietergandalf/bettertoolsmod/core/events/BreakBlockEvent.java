@@ -1,6 +1,5 @@
 package io.github.dietergandalf.bettertoolsmod.core.events;
 
-import io.github.dietergandalf.bettertoolsmod.core.functions.CompareBlockFunctions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
