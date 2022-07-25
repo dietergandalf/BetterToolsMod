@@ -1,8 +1,8 @@
 package io.github.dietergandalf.bettertoolsmod.core.init;
 
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.food.FoodProperties;
+//import net.minecraft.world.effect.MobEffectInstance;
+//import net.minecraft.world.effect.MobEffects;
+//import net.minecraft.world.food.FoodProperties;
 
 public class FoodInit {
 
