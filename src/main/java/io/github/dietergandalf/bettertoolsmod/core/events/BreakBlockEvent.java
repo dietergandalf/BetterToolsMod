@@ -1,5 +1,8 @@
 package io.github.dietergandalf.bettertoolsmod.core.events;
 
+import java.util.ArrayList;
+
+import io.github.dietergandalf.bettertoolsmod.core.functions.CompareBlockFunctions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -18,47 +21,42 @@ public class BreakBlockEvent extends BreakEvent{
   }
 
   public static void BreakBlocksEvent(Level world, BlockPos pos, BlockState state, Player player, int enchLvl) {
-    BlockPos[] AdjacentBlocks = {null, null};
+    ArrayList<BlockPos> AdjacentBlocksList = new ArrayList<BlockPos>();
+    int area = 2;
+    int height = 2;
+    int floor = 1;
+    
     if(enchLvl==1){
-      int index = 0;
-      int x = 0;
-      int z = 0;
-      for(int y = -1; y<=1; y++){  
-            if(!(y==0)){
-              AdjacentBlocks[index++] = new BlockPos(pos.getX()+x, pos.getY()+y, pos.getZ()+z);
-            }
-      }
+      area = 0;
+      area = 0;
+      height = 1;
+      floor = 1;
     }else if(enchLvl==2){
-      AdjacentBlocks = new BlockPos[26];
-      int index = 0;
-      for(int x = -1; x<=1; x++){
-        for(int y = -1; y<=1; y++){
-          for(int z = -1; z<=1; z++){
-            if(!(x==0 && y==0 && z==0)){
-              AdjacentBlocks[index++] = new BlockPos(pos.getX()+x, pos.getY()+y, pos.getZ()+z);
-            }
-          }
-        }
-      }
-    }else{
-      AdjacentBlocks = new BlockPos[99];
-      int index = 0;
-      for(int x = -2; x<=2; x++){
-        for(int y = -1; y<=2; y++){
-          for(int z = -2; z<=2; z++){
-            if(!(x==0 && y==0 && z==0)){
-              AdjacentBlocks[index++] = new BlockPos(pos.getX()+x, pos.getY()+y, pos.getZ()+z);
-            }
+      area = 1;
+      height = 1;
+      floor = 1;
+    }
+
+    for(int x = -area; x<=area; x++){
+      for(int y = -floor; y<=height; y++){
+        for(int z = -area; z<=area; z++){
+          if(!(x==0 && y==0 && z==0)){
+            AdjacentBlocksList.add(new BlockPos(pos.getX()+x, pos.getY()+y, pos.getZ()+z));
           }
         }
       }
     }
-    for(int i = 0; i < AdjacentBlocks.length; i++){
-      BlockState tmp_state = world.getBlockState(AdjacentBlocks[i]);
+
+    for(int i = 0; i < AdjacentBlocksList.size(); i++){
+      BlockState tmp_state = world.getBlockState(AdjacentBlocksList.get(i));
       Block block = tmp_state.getBlock();
       if(player.getMainHandItem().getItem().isCorrectToolForDrops(tmp_state)){
-        destroyBlock(world, AdjacentBlocks[i], tmp_state, player);
-        MiningEvent.findExtraItems(world, block, AdjacentBlocks[i], player);
+        destroyBlock(world, AdjacentBlocksList.get(i), tmp_state, player);
+
+        //Find extra resources in stone blocks
+        if(CompareBlockFunctions.isStoneBlock(block)){
+          MiningEvent.findExtraItems(world, block, AdjacentBlocksList.get(i), player);
+        }
       }
     }
   }

@@ -33,21 +33,7 @@ public class RammusShield extends Enchantment {
   public void doPostHurt(LivingEntity target, Entity attacker, int enchantmentLevel) {
     if (!target.level.isClientSide()){
 
-      if(enchantmentLevel == 1){
-        attacker.hurt(target.getLastDamageSource(), 2.0F);
-      }
-      if(enchantmentLevel == 2){
-        attacker.hurt(target.getLastDamageSource(), 4.0F);
-      }
-      if(enchantmentLevel == 3){
-        attacker.hurt(target.getLastDamageSource(), 6.0F);
-      }
-      if(enchantmentLevel == 4){
-        attacker.hurt(target.getLastDamageSource(), 8.0F);
-      }
-      if(enchantmentLevel == 5){
-        attacker.hurt(target.getLastDamageSource(), 10.0F);
-      }
+      attacker.hurt(target.getLastDamageSource(), enchantmentLevel * 1.5F);
     }
     super.doPostHurt(target, attacker, enchantmentLevel);
   }

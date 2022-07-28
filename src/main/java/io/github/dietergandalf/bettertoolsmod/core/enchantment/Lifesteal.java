@@ -29,22 +29,7 @@ public class Lifesteal extends Enchantment{
   @Override
   public void doPostAttack(LivingEntity attacker, Entity target, int pLevel) {
     if (!attacker.level.isClientSide()){
-
-      if(pLevel == 1){
-        attacker.heal(1);
-      }
-      if(pLevel == 2){
-        attacker.heal(2);
-      }
-      if(pLevel == 3){
-        attacker.heal(3);
-      }
-      if(pLevel == 4){
-        attacker.heal(4);
-      }
-      if(pLevel == 5){
-        attacker.heal(5);
-      }
+      attacker.heal(pLevel);
     }
 
     super.doPostAttack(attacker, target, pLevel);

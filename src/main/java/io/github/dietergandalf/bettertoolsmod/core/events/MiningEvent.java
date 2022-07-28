@@ -40,8 +40,8 @@ public class MiningEvent {
     BlockState state = e.getState();
 		Block block = state.getBlock();
     BlockPos pos = e.getPos();
-
-    if(player.getMainHandItem().getEnchantmentTags().getAsString().contains("bettertoolsmod:area_miner")){
+    
+    if(player.getMainHandItem().getEnchantmentLevel(ModEnchantments.AREA_MINER.get()) > 0){
       int enchantmentLvl = player.getMainHandItem().getEnchantmentLevel(ModEnchantments.AREA_MINER.get());
       BreakBlockEvent.BreakBlocksEvent(world, pos, e.getState(), player, enchantmentLvl);
     }
