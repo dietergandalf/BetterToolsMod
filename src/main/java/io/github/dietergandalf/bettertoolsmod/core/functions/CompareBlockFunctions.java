@@ -9,7 +9,7 @@ public class CompareBlockFunctions {
 	public static boolean blockIsInRegistryHolder(Block block, TagKey<Block> tagKey) {
 		return block.builtInRegistryHolder().is(tagKey);
 	}
-
+  
 	public static boolean isStoneBlock(Block block) {
 		return blockIsInRegistryHolder(block, BlockTags.BASE_STONE_OVERWORLD);
 	}

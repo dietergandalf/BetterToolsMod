@@ -5,7 +5,9 @@ import io.github.dietergandalf.bettertoolsmod.core.enchantment.ModEnchantments;
 import io.github.dietergandalf.bettertoolsmod.core.events.MiningEvent;
 import io.github.dietergandalf.bettertoolsmod.core.events.TickHandler;
 import io.github.dietergandalf.bettertoolsmod.core.init.BlockInit;
+import io.github.dietergandalf.bettertoolsmod.core.init.ConfiguredFeatureInit;
 import io.github.dietergandalf.bettertoolsmod.core.init.ItemInit;
+import io.github.dietergandalf.bettertoolsmod.core.init.PlacedFeatureInit;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.config.ModConfig.Type;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -29,6 +31,9 @@ public class BetterToolsMod {
 
     BlockInit.BLOCKS.register(modEventBus);
     ItemInit.ITEMS.register(modEventBus);
+    ConfiguredFeatureInit.CONFIGURED_FEATURES.register(modEventBus);
+    PlacedFeatureInit.PLACED_FEATURES.register(modEventBus);
+
     ModEnchantments.register(modEventBus);
     //OreGeneration.registerOres();
   }
